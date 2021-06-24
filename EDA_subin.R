@@ -98,9 +98,9 @@ ggplot(train, aes(x=자격유형, y=..count.., fill=자격유형))+
   ggtitle("자격유형 빈도")
 
 #### 임대보증금(chr) ####
-임대보증금 <- as.numeric(임대보증금)
+str(train)
 colSums(is.na(train))
-summary(임대보증금)
+summary(train$임대보증금)
 
 #### 임대료(chr) ####
 
