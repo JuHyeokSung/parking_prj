@@ -14,11 +14,15 @@ str(train)
 dim(distinct(train))
 
 ############## 1. 데이터 중복 행 ##############
+
 train <- distinct(train)
 dim(train)
 str(train)
 
 ############## 2. 데이터 정제 ##############
+train$임대료 <- as.numeric(train$임대료)
+train$임대보증금 <- as.numeric(train$임대보증금)
+
 attach(train)
 
 #### 총세대수(int) ####
@@ -98,12 +102,20 @@ ggplot(train, aes(x=자격유형, y=..count.., fill=자격유형))+
   ggtitle("자격유형 빈도")
 
 #### 임대보증금(chr) ####
-str(train)
+train$임대보증금 <- as.numeric(train$임대보증금)
 colSums(is.na(train))
-summary(train$임대보증금)
+summary(임대보증금)
+hist(임대보증금)
+boxplot(임대보증금)
+# 이상치가 존재 가능성有
+# 지역, 보증금, 임대료 등 다른 변수들과 비교해야 할 필요 존재 
+
+# NA 값 존재, 대체 혹은 제거 필요
 
 #### 임대료(chr) ####
-
+train$임대료 <- as.numeric(train$임대료)
+colSums(is.na(train))
+summary(임대료)
 
 #### 도보 10분거리 내 지하철역 수(환승노선 수 반영) (num) ####
 
