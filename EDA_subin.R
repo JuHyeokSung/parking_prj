@@ -20,7 +20,7 @@ str(train)
 
 ############## 2. 데이터 정제 ##############
 attach(train)
-detach(train)
+
 #### 총세대수(int) ####
 summary(총세대수)
 hist(총세대수)
